@@ -1,0 +1,146 @@
+
+
+   
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <title>My Certifications</title>
+        <link rel="stylesheet" href="assets/css/utility.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f9f9f9;
+            }
+            .certificates-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .certificate {
+                width: 30%; /* Reduced width of each certificate */
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                padding: 10px;
+                text-align: center;
+                cursor: pointer;
+            }
+            .certificate img {
+                max-width: 90%; /* Reduced image size */
+                height: auto;
+            }
+            .certificate:hover {
+            transform: scale(1.05); /* Zoom in slightly */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+        }
+
+            /* Fullscreen overlay */
+            .fullscreen-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+            }
+            .fullscreen-image {
+                max-width: 90%;
+                max-height: 90%;
+            }
+            .move-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 24px;
+                color: white;
+                cursor: pointer;
+                z-index: 1000;
+            }
+            .move-arrow.left {
+                left: 20px;
+            }
+            .move-arrow.right {
+                right: 20px;
+            }
+        </style>
+    </head>
+    <body>
+      <nav class="navbar" style="background-color: #209CEE;">
+        <button class="nav-button" style="background-color: aliceblue; color: black;"  onclick="window.location.href='skills.html'">Back</button>
+        <button class="nav-button" style="background-color: aliceblue; color: black;"  onclick="window.location.href='index.html'">Home</button>
+    </nav>
+        <h1 style="text-align: center;">My Certifications</h1>
+        <div class="certificates-container">
+            <div class="certificate" onclick="showFullScreen(0)">
+                <img src="images/certicates/Data Science.png" alt="Certification 1">
+            </div>
+            <div class="certificate" onclick="showFullScreen(1)">
+                <img src="images/certicates/Databases and SQL for Data Science with Python.png" alt="Certification 2">
+            </div>
+            <div class="certificate" onclick="showFullScreen(2)">
+                <img src="images/certicates/Data Analysis with Python.png" alt="Certification 3">
+            </div>
+            <div class="certificate" onclick="showFullScreen(3)">
+                <img src="images/certicates/Supervised Machine Learning Regression and Classification.png" alt="Certification 4">
+            </div>
+            <div class="certificate" onclick="showFullScreen(4)">
+                <img src="images/certicates/Unsupervised Learning.png" alt="Certification 5">
+            </div>
+            <div class="certificate" onclick="showFullScreen(5)">
+                <img src="images/certicates/Advanced Algo.png" alt="Certification 6">
+            </div>
+            <div class="certificate" onclick="showFullScreen(6)">
+                <img src="images/certicates/forward.jpg" alt="Certification 7">
+            </div>
+        </div>
+    
+        <!-- Fullscreen Overlay -->
+        <div id="fullscreen-overlay" class="fullscreen-overlay" onclick="closeFullScreen()">
+            <img id="fullscreen-image" class="fullscreen-image" src="" alt="Fullscreen Certificate">
+            <span class="move-arrow left" onclick="moveCertificate(-1, event)">&#10094;</span>
+            <span class="move-arrow right" onclick="moveCertificate(1, event)">&#10095;</span>
+        </div>
+    
+        <script>
+            let certificates = [
+                "images/Data Science.png",
+                "images/Data Analysis with Python.png",
+                "images/Databases and SQL for Data Science with Python.png",
+                "images/Supervised Machine Learning Regression and Classification.png",
+                "images/Unsupervised Learning.png",
+                "images/Advanced Algo.png",
+                "images/forward.jpg"
+            ];
+    
+            let currentIndex = -1;
+    
+            function showFullScreen(index) {
+                currentIndex = index;
+                document.getElementById("fullscreen-image").src = certificates[currentIndex];
+                document.getElementById("fullscreen-overlay").style.display = "flex";
+            }
+    
+            function closeFullScreen() {
+                document.getElementById("fullscreen-overlay").style.display = "none";
+            }
+    
+            function moveCertificate(direction, event) {
+                event.stopPropagation();  // Prevent overlay close when clicking on arrows
+    
+                currentIndex += direction;
+                if (currentIndex < 0) currentIndex = certificates.length - 1;
+                if (currentIndex >= certificates.length) currentIndex = 0;
+                document.getElementById("fullscreen-image").src = certificates[currentIndex];
+            }
+        </script>
+    </body>
+    </html>
+    
