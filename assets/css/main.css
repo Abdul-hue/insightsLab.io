@@ -116,7 +116,36 @@ input, select, textarea {
         padding: 6px 13px; /* Smaller padding for the button */
     }
 	
+/* Centering the resume button */
+@media (max-width: 768px) {
+    .resume-section {
+        padding-top: 20px; /* Adjust spacing as needed */
+        text-align: center; /* Center the button on small devices */
+    }
+    .resume-button {
+        font-size: 14px; /* Adjust button text size */
+        padding: 8px 16px; /* Adjust button padding */
+    }
+}
 
+/* Improving "Get in Touch" section layout */
+@media (max-width: 768px) {
+    #three .row {
+        flex-direction: column; /* Stack the items vertically */
+        align-items: center; /* Align to center */
+    }
+    #three .labeled-icons {
+        display: block; /* Make list display block */
+        text-align: center; /* Center the text */
+    }
+    #three .labeled-icons li {
+        margin-bottom: 20px; /* Add spacing between items */
+    }
+    #three .icon {
+        font-size: 18px; /* Adjust icon size */
+        margin-bottom: 10px; /* Add spacing below icon */
+    }
+}
 
 	@media (max-width: 768px) {
         .resume-button {
@@ -1776,6 +1805,142 @@ input, select, textarea {
 						}
 
 		}
+
+	/* Additional Media Queries for Enhanced Responsiveness */
+
+/* For devices less than 768px */
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .resume-section {
+        padding-left: 0;
+        padding-top: 20px;
+    }
+
+    .resume-button {
+        margin-left: -10px; /* Adjust to move the button slightly left */
+    }
+	.resume-button {
+        display: inline-block;
+        margin: 0 auto; /* Centers the button horizontally */
+    }
+
+    .row {
+        text-align: center; /* Centers content in the row for mobile devices */
+    }
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .labeled-icons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .labeled-icons li {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    /* Update Get in Touch Section */
+    .labeled-icons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .labeled-icons li {
+        width: 100%;
+        text-align: center;
+    }
+
+
+/* For devices less than 480px */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+	.resume-button {
+        display: inline-block;
+        margin: 0 auto; /* Centers the button horizontally */
+    }
+
+    .row {
+        text-align: center; /* Centers content in the row for mobile devices */
+    }
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+    .resume-button {
+        font-size: 11px;
+        padding: 5px 10px;
+        /* margin-right: 10px; Adjust to move the button slightly left */
+    }
+
+    .hover-container .btn {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    ul.actions {
+        flex-direction: column;
+    }
+
+    ul.actions li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .article-grid {
+        gap: 10px;
+    }
+
+    footer ul.icons li {
+        padding: 0 0.5em;
+    }
+
+    /* Update Get in Touch Section */
+    .labeled-icons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .labeled-icons li {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix potential overflow issues */
+body {
+    overflow-x: hidden;
+}
+
 /* Grid container for articles */
 .article-grid {
     display: grid;
@@ -1885,6 +2050,8 @@ article {
         font-size: 10px; /* Smaller text */
     }
 }
+
+
 /* Section/Article */
 
 	section.special, article.special {
