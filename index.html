@@ -28,7 +28,7 @@
 				<div class="container">
 				  <div class="row 150%">
 					<div class="4u 12u(mobile)">
-					  <a href="assets/resume.pdf" style="background-color: aliceblue; font-weight: bold;" class="button alt resume-button" download="My Resume">Download Resume</a>
+					  <a href="assets/resume.pdf" style="background-color: aliceblue; font-weight: bold;" class="button alt resume-button" download="Resume">Download Resume</a>
 					</div>
 				  </div>
 				</div>
@@ -199,3 +199,28 @@
 </html>
 
 
+
+<style>
+	@media (max-width: 768px) { /* Targeting mobile devices */
+		.row {
+			display: flex;
+			justify-content: center; /* Centers the content horizontally within the row */
+		}
+	
+		.resume-button {
+			display: inline-flex;
+			align-items: center; /* Vertically centers the text inside the button */
+			justify-content: center; /* Horizontally centers the text inside the button */
+			font-size: 11px;
+			padding: 5px 10px;
+			background-color: aliceblue;
+			font-weight: bold;
+			text-align: center; /* Ensures the text is centered */
+		}
+	
+		.container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	</style>
