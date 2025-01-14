@@ -14,14 +14,14 @@
         }
         nav.navbar {
             display: flex;
-            justify-content: flex-start; /* Align buttons to the left */
+            justify-content: flex-start;
             align-items: center;
             padding: 10px;
             background-color: #209CEE;
         }
         .nav-buttons {
-            display: flex; /* Arrange buttons in a row */
-            gap: 10px; /* Add space between buttons */
+            display: flex;
+            gap: 10px;
         }
         .nav-button {
             background-color: aliceblue;
@@ -33,7 +33,7 @@
             border-radius: 5px;
         }
         .nav-button:hover {
-            background-color: #f0f0f0; /* Add a hover effect */
+            background-color: #f0f0f0;
         }
         h1 {
             text-align: center;
@@ -47,7 +47,7 @@
             padding: 0 10px;
         }
         .certificate {
-            flex: 1 1 calc(100% - 20px); /* Default: Full width for small screens */
+            flex: 1 1 calc(100% - 20px);
             max-width: 100%;
             margin-bottom: 20px;
             border: 1px solid #ccc;
@@ -55,13 +55,13 @@
             text-align: center;
             cursor: pointer;
             box-sizing: border-box;
-            display: flex; /* Use flexbox */
-            flex-direction: column; /* Ensure vertical alignment */
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center content horizontally */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .certificate img {
-            max-width: 80%; /* Reduced image size */
+            max-width: 80%;
             height: auto;
         }
         .certificate:hover {
@@ -83,6 +83,7 @@
         .fullscreen-image {
             max-width: 90%;
             max-height: 90%;
+            object-fit: contain; /* Maintain aspect ratio without distortion */
         }
         .move-arrow {
             position: absolute;
@@ -100,20 +101,19 @@
             right: 20px;
         }
 
-        /* Responsive Adjustments */
         @media (min-width: 768px) {
             .certificate {
-                flex: 1 1 calc(50% - 20px); /* Two certificates per row on tablets */
+                flex: 1 1 calc(50% - 20px);
                 max-width: 48%;
             }
         }
         @media (min-width: 1024px) {
             .certificate {
-                flex: 1 1 calc(33.33% - 20px); /* Three certificates per row on laptops */
+                flex: 1 1 calc(33.33% - 20px);
                 max-width: 31%;
             }
             .certificate img {
-                max-width: 70%; /* Further reduce image size for larger screens */
+                max-width: 70%;
             }
         }
     </style>
@@ -167,7 +167,7 @@
             "images/certicates/Supervised Machine Learning Regression and Classification.png",
             "images/certicates/Unsupervised Learning.png",
             "images/certicates/Advanced Algo.png",
-            "images/certicates/NN & DL.png"
+            "images/certicates/NN & DL.png",
             "images/certicates/forward.jpg"
         ];
 
@@ -175,7 +175,9 @@
 
         function showFullScreen(index) {
             currentIndex = index;
-            document.getElementById("fullscreen-image").src = certificates[currentIndex];
+            const fullscreenImage = document.getElementById("fullscreen-image");
+            fullscreenImage.src = certificates[currentIndex];
+            fullscreenImage.alt = `Certification ${currentIndex + 1}`;
             document.getElementById("fullscreen-overlay").style.display = "flex";
         }
 
@@ -184,12 +186,11 @@
         }
 
         function moveCertificate(direction, event) {
-            event.stopPropagation(); // Prevent overlay close when clicking on arrows
-
+            event.stopPropagation();
             currentIndex += direction;
             if (currentIndex < 0) currentIndex = certificates.length - 1;
             if (currentIndex >= certificates.length) currentIndex = 0;
-            document.getElementById("fullscreen-image").src = certificates[currentIndex];
+            showFullScreen(currentIndex);
         }
     </script>
 </body>
