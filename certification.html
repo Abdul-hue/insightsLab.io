@@ -127,37 +127,38 @@
     </nav>
     <h1>My Certifications</h1>
     <div class="certificates-container">
-    <div class="certificate" onclick="showFullScreen(1)">
-        <img src="images/certicates/Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuning,%20Regularization%20and%20Optimization.png" alt="Certification 1">
-    </div>
-    <div class="certificate" onclick="showFullScreen(2)">
-        <img src="images/certicates/NN%20%26%20DL.png" alt="Certification 2">
-    </div>
-    <div class="certificate" onclick="showFullScreen(3)">
-        <img src="images/certicates/ML%20Specialization.png" alt="Certification 3">
-    </div>
-    <div class="certificate" onclick="showFullScreen(4)">
-        <img src="images/certicates/Data%20Science.png" alt="Certification 4">
-    </div>
-    <div class="certificate" onclick="showFullScreen(5)">
-        <img src="images/certicates/Databases%20and%20SQL%20for%20Data%20Science%20with%20Python.png" alt="Certification 5">
-    </div>
-    <div class="certificate" onclick="showFullScreen(6)">
-        <img src="images/certicates/Data%20Analysis%20with%20Python.png" alt="Certification 6">
-    </div>
-    <div class="certificate" onclick="showFullScreen(7)">
-        <img src="images/certicates/Supervised%20Machine%20Learning%20Regression%20and%20Classification.png" alt="Certification 7">
-    </div>
-    <div class="certificate" onclick="showFullScreen(8)">
-        <img src="images/certicates/Unsupervised%20Learning.png" alt="Certification 8">
-    </div>
-    <div class="certificate" onclick="showFullScreen(9)">
-        <img src="images/certicates/Advanced%20Algo.png" alt="Certification 9">
-    </div>
-    <div class="certificate" onclick="showFullScreen(10)">
-        <img src="images/certicates/forward.jpg" alt="Certification 10">
-    </div>
+        <div class="certificate" onclick="showFullScreen(1)">
+            <img src="images/certicates/Improving Deep Neural Networks Hyperparameter Tuning, Regularization and Optimization.png" alt="Certification 1">
+        </div>
+        <div class="certificate" onclick="showFullScreen(2)">
+            <img src="images/certicates/NN & DL.png" alt="Certification 2">
+        </div>
+        <div class="certificate" onclick="showFullScreen(3)">
+            <img src="images/certicates/ML Specialization.png" alt="Certification 3">
+        </div>
+        <div class="certificate" onclick="showFullScreen(4)">
+            <img src="images/certicates/Data Science.png" alt="Certification 4">
+        </div>
+        <div class="certificate" onclick="showFullScreen(5)">
+            <img src="images/certicates/Databases and SQL for Data Science with Python.png" alt="Certification 5">
+        </div>
+        <div class="certificate" onclick="showFullScreen(6)">
+            <img src="images/certicates/Data Analysis with Python.png" alt="Certification 6">
+        </div>
+        <div class="certificate" onclick="showFullScreen(7)">
+            <img src="images/certicates/Supervised Machine Learning Regression and Classification.png" alt="Certification 7">
+        </div>
+        <div class="certificate" onclick="showFullScreen(8)">
+            <img src="images/certicates/Unsupervised Learning.png" alt="Certification 8">
+        </div>
+        <div class="certificate" onclick="showFullScreen(9)">
+            <img src="images/certicates/Advanced Algo.png" alt="Certification 9">
+        </div>
+        <div class="certificate" onclick="showFullScreen(10)">
+            <img src="images/certicates/forward.jpg" alt="Certification 10">
+        </div>
 </div>
+
 
     <div id="fullscreen-overlay" class="fullscreen-overlay" onclick="closeFullScreen()">
         <img id="fullscreen-image" class="fullscreen-image" src="" alt="Fullscreen Certificate">
@@ -166,26 +167,32 @@
     </div>
 
     <script>
+    // List of certificates
     let certificates = [
         "images/certicates/Improving Deep Neural Networks Hyperparameter Tuning, Regularization and Optimization.png",
-        "images/certicates/NN%20%26%20DL.png", // Updated for proper URL encoding
-        "images/certicates/ML%20Specialization.png",
-        "images/certicates/Data%20Science.png",
-        "images/certicates/Databases%20and%20SQL%20for%20Data%20Science%20with%20Python.png",
-        "images/certicates/Data%20Analysis%20with%20Python.png",
-        "images/certicates/Supervised%20Machine%20Learning%20Regression%20and%20Classification.png",
-        "images/certicates/Unsupervised%20Learning.png",
-        "images/certicates/Advanced%20Algo.png",
+        "images/certicates/NN & DL.png",
+        "images/certicates/ML Specialization.png",
+        "images/certicates/Data Science.png",
+        "images/certicates/Databases and SQL for Data Science with Python.png",
+        "images/certicates/Data Analysis with Python.png",
+        "images/certicates/Supervised Machine Learning Regression and Classification.png",
+        "images/certicates/Unsupervised Learning.png",
+        "images/certicates/Advanced Algo.png",
         "images/certicates/forward.jpg"
     ];
 
     let currentIndex = -1;
 
     function showFullScreen(index) {
-        currentIndex = index - 1; // Adjust index to match array (0-based)
+        // Map the index directly to the array
+        currentIndex = index - 1; // Adjust 1-based index to 0-based array
         const fullscreenImage = document.getElementById("fullscreen-image");
+
+        // Set the image source and alt text
         fullscreenImage.src = certificates[currentIndex];
         fullscreenImage.alt = `Certification ${index}`;
+        
+        // Display the overlay
         document.getElementById("fullscreen-overlay").style.display = "flex";
     }
 
@@ -194,10 +201,13 @@
     }
 
     function moveCertificate(direction, event) {
-        event.stopPropagation(); // Prevent closing the overlay when navigating
+        event.stopPropagation(); // Prevent overlay click from closing the fullscreen
         currentIndex += direction;
-        if (currentIndex < 0) currentIndex = certificates.length - 1; // Wrap around to the last certificate
-        if (currentIndex >= certificates.length) currentIndex = 0; // Wrap around to the first certificate
+
+        // Wrap around if out of bounds
+        if (currentIndex < 0) currentIndex = certificates.length - 1;
+        if (currentIndex >= certificates.length) currentIndex = 0;
+
         const fullscreenImage = document.getElementById("fullscreen-image");
         fullscreenImage.src = certificates[currentIndex];
         fullscreenImage.alt = `Certification ${currentIndex + 1}`;
